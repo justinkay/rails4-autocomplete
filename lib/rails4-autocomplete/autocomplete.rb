@@ -57,7 +57,8 @@ module Rails4Autocomplete
             items = {}
           end
 
-          render :json => json_for_autocomplete(items, options[:display_value] ||= method, options[:extra_data])
+          # serializer added for compatability with active_model_serializers by Justin 12/8/15
+          render :json => json_for_autocomplete(items, options[:display_value] ||= method, options[:extra_data]), serializer: nil
         end
       end
     end
